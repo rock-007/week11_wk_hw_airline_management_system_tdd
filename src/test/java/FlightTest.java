@@ -10,6 +10,7 @@ import person.passenger.Passenger;
 import plane.Plane;
 import plane.PlaneType;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
@@ -22,7 +23,7 @@ public class FlightTest {
     Plane plane1;
     String destination;
     String departureAirport;
-    Date departureTime;
+    LocalDate departureTime;
     String flightNo;
     Passenger passenger1, passenger2, passenger3;
     FlightManager flightManagerInstance;
@@ -47,7 +48,7 @@ public class FlightTest {
         }});
         destination = "LND";
         departureAirport = "KHI";
-        departureTime = new Date(2021, Calendar.AUGUST,11);
+        departureTime = LocalDate.of(2000,1,1);
         flightNo = "KK132";
         pilot = new Pilot("Umair", RankType.PILOT.getType(), "23423423");
         cabinCrew1 = new CabinCrew("Asghar", RankType.AIRHOSTES.getType());

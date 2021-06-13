@@ -5,8 +5,8 @@ import person.passenger.Passenger;
 import plane.Plane;
 import person.crew.RankType;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Flight {
     private ArrayList<? extends Crew> flyingCrew;
@@ -16,10 +16,10 @@ public class Flight {
     private String flightNo;
     private String destination;
     private String departureAirport;
-    private Date departureTime;
+    private LocalDate departureTime;
 
     //    public Flight(ArrayList<? extends Crew> flyingCrew, ArrayList<? extends Crew> cabinCrew, Plane plane, String flightNo, String destination, String departureAirport, String departureTime) {
-    public Flight(Plane plane, String flightNo, String destination, String departureAirport, Date departureTime) {
+    public Flight(Plane plane, String flightNo, String destination, String departureAirport, LocalDate departureTime) {
         this.flyingCrew = new ArrayList<>();
         this.cabinCrew = new ArrayList<>();
         this.passengers = new ArrayList<>();
