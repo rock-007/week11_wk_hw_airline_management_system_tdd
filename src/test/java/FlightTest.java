@@ -142,5 +142,17 @@ public class FlightTest {
 
     }
 
+    @Test
+    public void allocatedSeatNo() {
+        flight1.setFlyingCrew(new ArrayList<Pilot>(Arrays.asList(pilot)));
+        flight1.setCabinCrew(new ArrayList<CabinCrew>(Arrays.asList(cabinCrew1)));
+        flight1.addPassenger(passenger1);
+        flight1.addPassenger(passenger2);
+        flight1.addPassenger(passenger3);
+        int reservedSeat = flight1.seachSeatForPassenger(passenger1);
+        assertEquals(true, flight1.seatAlreadyBooked(reservedSeat));
+
+    }
+
 
 }

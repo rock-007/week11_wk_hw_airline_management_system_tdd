@@ -51,4 +51,16 @@ public class Plane {
     public String getPlaneType() {
         return planeType;
     }
+
+    public int searchPassengerSeats(String name) {
+
+        int seatNo = -1;
+        for (HashMap.Entry<Integer, String> passengerSeat : passengerSeats.entrySet()) {
+            if (passengerSeat.getValue().equals(name)) {
+                seatNo = passengerSeat.getKey();
+                break;
+            }
+        }
+        return -1;
+    }
 }

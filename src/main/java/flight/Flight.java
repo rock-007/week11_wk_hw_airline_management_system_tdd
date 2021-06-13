@@ -59,6 +59,9 @@ public class Flight {
     public void addPassenger(Passenger passenger) {
         if (plane.getEmptyPassengerSeats().size() > 0) {
             plane.setPassengerSeats(passenger.getName());
+            int passengerSeatNo = plane.searchPassengerSeats(passenger.getName());
+            passenger.setSeatNo(passengerSeatNo);
+            passenger.setFlightNo(flightNo);
             passengers.add(passenger);
         }
     }
@@ -83,7 +86,25 @@ public class Flight {
         return result;
     }
 
-//    public void setPlane(Plane plane) {
-//        this.plane = plane;
-//    }
+    public int seachSeatForPassenger(Passenger passenger) {
+        int passengerSeat = -1;
+        for (Passenger eachPassenger : passengers) {
+            if (eachPassenger.getName().equals(passenger.getName())) {
+                passengerSeat = eachPassenger.getSeatNo();
+            }
+        }
+        return passengerSeat;
+    }
+
+    public boolean seatAlreadyBooked(int reservedSeat) {
+        boolean reservedAlreadySeat = false;
+        for (Passenger eachPassenger : passengers) {
+            if (eachPassenger.getSeatNo() == reservedSeat) {
+                reservedAlreadySeat = true;
+                break;
+            }
+        }
+        return reservedAlreadySeat;
+
+    }
 }
