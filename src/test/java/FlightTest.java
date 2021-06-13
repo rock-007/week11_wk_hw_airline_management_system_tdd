@@ -1,4 +1,5 @@
 import flight.Flight;
+import flight.FlightManager;
 import org.junit.Before;
 import org.junit.Test;
 import person.crew.CabinCrew;
@@ -24,6 +25,7 @@ public class FlightTest {
     Plane plane1;
     String destination, departureAirport, departureTime, flightNo;
     Passenger passenger1, passenger2, passenger3;
+    FlightManager flightManagerInstance;
 
 
     @Before
@@ -49,13 +51,14 @@ public class FlightTest {
         flightNo = "KK132";
         pilot = new Pilot("Umair", RankType.PILOT.getType(), "23423423");
         cabinCrew1 = new CabinCrew("Asghar", RankType.AIRHOSTES.getType());
-        passenger1= new Passenger("Adam", 3);
-        passenger2= new Passenger("Ali", 2);
-        passenger3= new Passenger("Ahmed", 4);
+        passenger1 = new Passenger("Adam", 6);
+        passenger2 = new Passenger("Ali", 2);
+        passenger3 = new Passenger("Ahmed", 4);
 
         //        flight1 = new Flight(new ArrayList<Pilot>(Arrays.asList(pilot)), new ArrayList<CabinCrew>(Arrays.asList(cabinCrew1)), plane1, flightNo, destination, departureAirport, departureTime);
         //    }
         flight1 = new Flight(plane1, flightNo, destination, departureAirport, departureTime);
+        flightManagerInstance = new FlightManager();
     }
 
     @Test
@@ -78,6 +81,7 @@ public class FlightTest {
 
 
     }
+
     @Test
     public void PilotAllocatedToFlight() {
         flight1.setFlyingCrew(new ArrayList<Pilot>(Arrays.asList(pilot)));
@@ -87,6 +91,7 @@ public class FlightTest {
 
 
     }
+
     @Test
     public void cabinCrewRelayMessage() {
         flight1.setFlyingCrew(new ArrayList<Pilot>(Arrays.asList(pilot)));
@@ -99,6 +104,7 @@ public class FlightTest {
 
 
     }
+
     @Test
     public void passengerBooking() {
         flight1.setFlyingCrew(new ArrayList<Pilot>(Arrays.asList(pilot)));
@@ -113,5 +119,28 @@ public class FlightTest {
 
 
     }
+
+    @Test
+    public void perPassengerBaggageAllowance() {
+
+
+        assertEquals(5, flightManagerInstance.perPassengerBaggageAllowance(plane1));
+
+    }
+
+    @Test
+    public void passengerBaggageWeight() {
+        assertEquals("Access baggage will not be booked into the plane", flightManagerInstance.bookPassengerBaggage(plane1, passenger1));
+        assertEquals("Bagged booked for passenger", flightManagerInstance.bookPassengerBaggage(plane1, passenger2));
+    }
+
+    @Test
+    public void leftBaggageAllowance() {
+        flight1.addPassenger(passenger1);
+        flight1.addPassenger(passenger2);
+        assertEquals(40, flightManagerInstance.leftBaggageAllowance(plane1));
+
+    }
+
 
 }

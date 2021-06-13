@@ -10,4 +10,8 @@ public class Passenger extends Person {
         super(name);
         this.noOfBags = noOfBags;
     }
+
+    public int getNoOfBags() {
+        return noOfBags;
+    }
 }
