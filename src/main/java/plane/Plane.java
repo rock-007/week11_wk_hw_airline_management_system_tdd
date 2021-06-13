@@ -1,15 +1,54 @@
 package plane;
 
-public class Plane {
-    private PlaneType planeType;
-    private PlaneType planeId;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-    public Plane(PlaneType planeType, PlaneType planeId) {
+public class Plane {
+    private String planeType;
+    private String planeId;
+    private int planeWeight;
+    private HashMap<Integer, String> passengerSeats;
+
+    public Plane(String planeType, String planeId, int planeWeight, HashMap<Integer, String> passengerSeats) {
         this.planeType = planeType;
         this.planeId = planeId;
+        this.planeWeight = planeWeight;
+        this.passengerSeats = passengerSeats;
     }
 
-    public PlaneType getPlaneType() {
+    public String getPlaneId() {
+        return planeId;
+    }
+
+    public HashMap<Integer, String> getPassengerSeats() {
+        return passengerSeats;
+    }
+
+    public ArrayList<Integer> getEmptyPassengerSeats() {
+        ArrayList<Integer> emptySeatsNo = new ArrayList<>();
+        for (HashMap.Entry<Integer, String> passengerSeat : passengerSeats.entrySet()) {
+            if (passengerSeat.getValue().equals("EmptySeat")) {
+                emptySeatsNo.add(passengerSeat.getKey());
+            }
+        }
+        return emptySeatsNo;
+    }
+
+    public void setPassengerSeats(String passengerName) {
+        for (HashMap.Entry<Integer, String> passengerSeat : passengerSeats.entrySet()) {
+            if (passengerSeat.getValue().equals("EmptySeat")) {
+                passengerSeat.setValue(passengerName);
+                break;
+            }
+        }
+    }
+
+    public int getPlaneWeight() {
+        return planeWeight;
+    }
+
+    public String getPlaneType() {
         return planeType;
     }
 }
