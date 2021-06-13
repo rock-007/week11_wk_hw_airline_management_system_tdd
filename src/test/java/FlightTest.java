@@ -4,16 +4,13 @@ import org.junit.Before;
 import org.junit.Test;
 import person.crew.CabinCrew;
 import person.crew.Pilot;
-import person.crew.Crew;
 
 import person.crew.RankType;
 import person.passenger.Passenger;
 import plane.Plane;
 import plane.PlaneType;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -23,7 +20,10 @@ public class FlightTest {
     Pilot pilot;
     CabinCrew cabinCrew1;
     Plane plane1;
-    String destination, departureAirport, departureTime, flightNo;
+    String destination;
+    String departureAirport;
+    Date departureTime;
+    String flightNo;
     Passenger passenger1, passenger2, passenger3;
     FlightManager flightManagerInstance;
 
@@ -47,7 +47,7 @@ public class FlightTest {
         }});
         destination = "LND";
         departureAirport = "KHI";
-        departureTime = "13:00";
+        departureTime = new Date(2021, Calendar.AUGUST,11);
         flightNo = "KK132";
         pilot = new Pilot("Umair", RankType.PILOT.getType(), "23423423");
         cabinCrew1 = new CabinCrew("Asghar", RankType.AIRHOSTES.getType());
