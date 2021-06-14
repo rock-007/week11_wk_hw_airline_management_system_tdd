@@ -6,20 +6,21 @@ import person.Person;
 public class Passenger extends Person {
     private int noOfBags;
     private String flightNo = null;
-    private int seatNo = -1;
-    public int getSeatNo() {
-        return seatNo;
-    }
-
-    public void setSeatNo(int seatNo) {
-        this.seatNo = seatNo;
-    }
-
+    private int seatNo;
 
 
     public Passenger(String name, int noOfBags) {
         super(name);
         this.noOfBags = noOfBags;
+        this.seatNo = -1;
+    }
+
+    public int getSeatNo() {
+        return seatNo;
+    }
+
+    public int getNoOfBags() {
+        return noOfBags;
     }
 
     public String getFlightNo() {
@@ -30,7 +31,8 @@ public class Passenger extends Person {
         this.flightNo = flightNo;
     }
 
-    public int getNoOfBags() {
-        return noOfBags;
+    public void setSeatNo(int seatNo) {
+        this.seatNo = seatNo;
     }
+
 }

@@ -33,9 +33,6 @@ public class FlightManager {
 
     public int leftBaggageAllowance(Plane plane) {
         int emptySeats = plane.getEmptyPassengerSeats().size();
-        System.out.println(emptySeats);
-        System.out.println(perPassengerBaggageAllowance(plane));
-
         return emptySeats * perPassengerBaggageAllowance(plane);
     }
 }

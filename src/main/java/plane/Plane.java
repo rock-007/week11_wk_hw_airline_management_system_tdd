@@ -25,6 +25,14 @@ public class Plane {
         return passengerSeats;
     }
 
+    public int getPlaneWeight() {
+        return planeWeight;
+    }
+
+    public String getPlaneType() {
+        return planeType;
+    }
+
     public ArrayList<Integer> getEmptyPassengerSeats() {
         ArrayList<Integer> emptySeatsNo = new ArrayList<>();
         for (HashMap.Entry<Integer, String> passengerSeat : passengerSeats.entrySet()) {
@@ -44,13 +52,6 @@ public class Plane {
         }
     }
 
-    public int getPlaneWeight() {
-        return planeWeight;
-    }
-
-    public String getPlaneType() {
-        return planeType;
-    }
 
     public int searchPassengerSeats(String name) {
 
@@ -61,6 +62,6 @@ public class Plane {
                 break;
             }
         }
-        return -1;
+        return seatNo;
     }
 }

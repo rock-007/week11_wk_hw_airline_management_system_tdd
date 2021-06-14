@@ -18,7 +18,7 @@ public class Flight {
     private String departureAirport;
     private LocalTime departureTime;
 
-    //    public Flight(ArrayList<? extends Crew> flyingCrew, ArrayList<? extends Crew> cabinCrew, Plane plane, String flightNo, String destination, String departureAirport, String departureTime) {
+
     public Flight(Plane plane, String flightNo, String destination, String departureAirport, LocalTime departureTime) {
         this.flyingCrew = new ArrayList<>();
         this.cabinCrew = new ArrayList<>();
@@ -31,10 +31,10 @@ public class Flight {
     }
 
     public ArrayList<String> getPilotInfo() {
-//        String[] pilotCollection = new String[2];
+
         ArrayList<String> pilotCollection = new ArrayList<>();
         for (Crew eachCrew : flyingCrew) {
-            // if using ==eachCrew.getRank() == RankType.PILOT.getType() it will compare the referece
+
             if (eachCrew.getRank().equals(RankType.PILOT.getType())) {
                 pilotCollection.add(eachCrew.getName());
             }
@@ -97,6 +97,7 @@ public class Flight {
 
     public boolean seatAlreadyBooked(int reservedSeat) {
         boolean reservedAlreadySeat = false;
+
         for (Passenger eachPassenger : passengers) {
             if (eachPassenger.getSeatNo() == reservedSeat) {
                 reservedAlreadySeat = true;
@@ -107,3 +108,10 @@ public class Flight {
 
     }
 }
+
+
+// 21   public Flight(ArrayList<? extends Crew> flyingCrew, ArrayList<? extends Crew> cabinCrew, Plane plane, String flightNo, String destination, String departureAirport, String departureTime) {
+
+//100 can use ThreadLocalRandom.current().nextInt(1, 10); to randon search seat then we need to make sure the seat is not already been in use
+//  34      String[] pilotCollection = new String[2];
+//37 if using ==eachCrew.getRank() == RankType.PILOT.getType() it will compare the referece
